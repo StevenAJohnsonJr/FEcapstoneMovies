@@ -78,29 +78,42 @@ const createDirector = (payload) => new Promise((resolve, reject) => {
       .catch(reject);
   });
 
-  const getMovieByDirectorId = (directorid) => new Promise((resolve, reject) => {
-    fetch(`${endpoint}/MoviesbyDirectorId2/${directorid}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          reject(`Network response was not ok: ${response.status} ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        resolve(data);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  });
+//   const getMovieByDirectorId = (directorid) => new Promise((resolve, reject) => {
+//     fetch(`${endpoint}/MoviesbyDirectorId2/${directorid}`, {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           reject(`Network response was not ok: ${response.status} ${response.statusText}`);
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         resolve(data);
+//       })
+//       .catch((error) => {
+//         reject(error);
+//       });
+//   });
 
   const getDirectorById = (id) => new Promise((resolve, reject) => {
     fetch(`${endpoint}/director/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+      .then((response) => resolve(response.json()))
+      // .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
+
+  const getMovieByDirectorId = (directorid) => new Promise((resolve, reject) => {
+    fetch(`${endpoint}/api/MoviesbyDirectorId2/${directorid}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

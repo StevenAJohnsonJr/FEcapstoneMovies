@@ -17,7 +17,7 @@ function DirectorCard({ dirObj }) {
         borderRadius: '18px',
       }}
     >
-      <Link href={`/movies/${dirObj.directorName}`} passHref>
+      <Link href={`/directors/${dirObj.id}`} passHref>
         <div className="d-flex justify-content-start" style={{ padding: '10px 10px 0px 10px', gap: '2rem' }}>
           <Card.Title className="align-self-center text-center fs-4">{dirObj.directorName}</Card.Title>
         </div>
