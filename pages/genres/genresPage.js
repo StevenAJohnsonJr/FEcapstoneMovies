@@ -1,18 +1,18 @@
 /* eslint-disable */
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { getAllHolidayMovies } from '../../ApiCalls/MovieApiCalls';
-import HolidayCard from '../../components/Cards/HolidayMovieCards';
+import GenreCard from '../../components/GenreCards.js/GenreCard';
+import { getAllGenres } from '../../ApiCalls/GenreApiCalls';
 
 
-function ActionMoviePage() {
-    const [holidayMovies, setHolidayMovie] = useState([]);
-    const getAllHoliday = () => {
-        getAllHolidayMovies().then(setHolidayMovie);
+function GenreMoviePage() {
+    const [genreMovies, setGenreMovie] = useState([]);
+    const getAllGenre = () => {
+        getAllGenres().then(setGenreMovie);
     };
     useEffect(() => {
-        getAllHoliday();
-        console.warn(holidayMovies)
+        getAllGenre();
+        console.warn(genreMovies)
     }, []);
     return (
         <>
@@ -26,13 +26,13 @@ function ActionMoviePage() {
                     margin: '0 auto',
                 }}
             >
-                <h1>All Our Action Movies</h1>
+                <h1>All Our Movie Genres</h1>
             </div>
             <div className="flex-wrap" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-                {holidayMovies?.map((movie) => (
-                    <HolidayCard MovieObj={movie} />))}
+                {genreMovies?.map((genre) => (
+                    <GenreCard GenreObj={genre} />))}
             </div>
         </>
     );
 }
-export default ActionMoviePage;
+export default GenreMoviePage;
