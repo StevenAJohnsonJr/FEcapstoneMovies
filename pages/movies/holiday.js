@@ -1,18 +1,18 @@
 /* eslint-disable */
 import React from 'react';
 import { useEffect, useState } from 'react';
-import ActionCard from '../../components/Cards/ActionMovieCards';
-import { getAllSciFiMovies } from '../../ApiCalls/MovieApiCalls';
+import { getAllHolidayMovies } from '../../ApiCalls/MovieApiCalls';
+import HolidayCard from '../../components/Cards/HolidayMovieCards';
 
 
-function SciFiMoviePage() {
-    const [sciFiMovies, setSciFiMovie] = useState([]);
-    const getAllSciFi = () => {
-        getAllSciFiMovies ().then(setSciFiMovie);
+function HolidayMoviePage() {
+    const [holidayMovies, setHolidayMovie] = useState([]);
+    const getAllHoliday = () => {
+        getAllHolidayMovies().then(setHolidayMovie);
     };
     useEffect(() => {
-        getAllSciFi();
-        console.warn(sciFiMovies)
+        getAllHoliday();
+        console.warn(holidayMovies)
     }, []);
     return (
         <>
@@ -26,13 +26,13 @@ function SciFiMoviePage() {
                     margin: '0 auto',
                 }}
             >
-                <h1>All Our Action Movies</h1>
+                <h1>All Our Holiday Movies</h1>
             </div>
             <div className="flex-wrap" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-                {sciFiMovies.map((movie) => (
-                    <ActionCard MovieObj={movie} />))}
+                {holidayMovies?.map((movie) => (
+                    <HolidayCard MovieObj={movie} />))}
             </div>
         </>
     );
 }
-export default SciFiMoviePage;
+export default HolidayMoviePage;
