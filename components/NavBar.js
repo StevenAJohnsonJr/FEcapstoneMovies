@@ -62,6 +62,9 @@ export default function NavBar() {
             <Link className="ps-relative" passHref href="/movies/westernMoviePage">
               <Nav.Link className="nav-topic">Western</Nav.Link>
             </Link>
+            <Link className="ps-relative" passHref href="/movies/westernMoviePage">
+              <Nav.Link className="nav-topic">Western</Nav.Link>
+            </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
             </Button>
