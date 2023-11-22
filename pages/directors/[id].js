@@ -27,7 +27,7 @@ export default function orderDetails() {
           <div class="b2">
             <span></span>
             <div class="c3">
-              <h1>WhAt'S oN tHe MeNu!!!</h1> {directorDetails.directorName}<p style={{ marginButton: '100px' }}></p>
+              <h1>{directorDetails.directorName}'s Movies</h1> <p style={{ marginButton: '100px' }}></p>
               <div className="CommentCardShow d-flex flex-wrap" style={{ marginTop: '20px' }}>
                 {movies.map((movie) => (
                   <MovieCard key={movie.directorId} MovieObj={movie} onUpdate={getMovieByDirectorId} />

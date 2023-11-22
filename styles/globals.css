@@ -20,3 +20,19 @@ a {
 body {
   background-color: #88effd;
 }
+
+ #movieContainer { 
+  width: 80%;
+  height: 20%fit-content;
+  border-radius: 3px;
+  border: 2px solid Black;
+  padding: 20px 14;
+  /* margin: 20px 20px 20px 20px; */
+  /* background: #A4D3EE; */
+  overflow: visible;
+  box-shadow: 5px 5px 2px #888888;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ } 
