@@ -26,6 +26,9 @@ export default function NavBar() {
             <Link className="ps-relative" passHref href="/movies/new">
               <Nav.Link className="nav-topic">Add Movie</Nav.Link>
             </Link>
+            <Link className="ps-relative" passHref href="/directors/new">
+              <Nav.Link className="nav-topic">Add Director</Nav.Link>
+            </Link>
             <Link className="ps-relative" passHref href="/movies/action">
               <Nav.Link className="nav-topic">Action Movies</Nav.Link>
             </Link>

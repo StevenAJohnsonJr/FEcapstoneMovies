@@ -33,11 +33,11 @@ function MovieForm({ obj }) {
 
   useEffect(() => {
     getAllGenres().then((data) => setGenres(data));
-}, []);
+  }, []);
 
-useEffect(() => {
+  useEffect(() => {
     getAllDirector().then((data) => setDirectors(data));
-}, []);
+  }, []);
 
   useEffect(() => {
     setFormInput((prevInput) => ({
@@ -82,17 +82,10 @@ useEffect(() => {
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.id ? 'Update' : 'Create'} Movie</h2>
 
-       {/* TITLE INPUT  */}
-       <FloatingLabel controlId="floatingInput1" label="Please Enter New Movie Title" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="title"
-          name="title"
-          value={formInput.title}
-          onChange={handleChange}
-          required
-        />
-        </FloatingLabel>
+      {/* TITLE INPUT  */}
+      <FloatingLabel controlId="floatingInput1" label="Please Enter New Movie Title" className="mb-3">
+        <Form.Control type="text" placeholder="title" name="title" value={formInput.title} onChange={handleChange} required />
+      </FloatingLabel>
 
       {/* DIRECTOR SELECT */}
       <FloatingLabel controlId="floatingSelectDirector" label="Director">
@@ -133,75 +126,39 @@ useEffect(() => {
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingInput3" label="Please Enter Movie Description" className="mb-3">
-                <Form.Control
-                    type="text"
-                    placeholder="description"
-                    name="description"
-                    value={formInput.description}
-                    onChange={handleChange}
-                />
-            </FloatingLabel>
+        <Form.Control type="text" placeholder="description" name="description" value={formInput.description} onChange={handleChange} />
+      </FloatingLabel>
 
-            <FloatingLabel controlId="floatingInput3" label="Please Enter The Year The Film Was Released" className="mb-3">
-                <Form.Control
-                    type="number"
-                    placeholder="year"
-                    name="year"
-                    value={formInput.year}
-                    onChange={handleChange}
-                />
-            </FloatingLabel>
+      <FloatingLabel controlId="floatingInput3" label="Please Enter The Year The Film Was Released" className="mb-3">
+        <Form.Control type="number" placeholder="year" name="year" value={formInput.year} onChange={handleChange} />
+      </FloatingLabel>
 
-            <FloatingLabel controlId="floatingInput3" label="What Is This Film Rated" className="mb-3">
-                <Form.Control
-                    type="text"
-                    placeholder="rated"
-                    name="rated"
-                    value={formInput.rated}
-                    onChange={handleChange}
-                />
-                </FloatingLabel>
+      <FloatingLabel controlId="floatingInput3" label="What Is This Film Rated" className="mb-3">
+        <Form.Control type="text" placeholder="rated" name="rated" value={formInput.rated} onChange={handleChange} />
+      </FloatingLabel>
 
-            <FloatingLabel controlId="floatingInput3" label="How Many Stars Out Of 5" className="mb-3">
-                <Form.Control
-                    type="text"
-                    placeholder="rating"
-                    name="rating"
-                    value={formInput.rating}
-                    onChange={handleChange}
-                />
-            </FloatingLabel>
+      <FloatingLabel controlId="floatingInput3" label="How Many Stars Out Of 5" className="mb-3">
+        <Form.Control type="text" placeholder="rating" name="rating" value={formInput.rating} onChange={handleChange} />
+      </FloatingLabel>
 
-            <FloatingLabel controlId="floatingInput3" label="What Platforms Is This Film Streaming On" className="mb-3">
-                <Form.Control
-                    type="text"
-                    placeholder="streamingOn"
-                    name="streamingOn"
-                    value={formInput.streamingOn}
-                    onChange={handleChange}
-                />
-                </FloatingLabel>
+      <FloatingLabel controlId="floatingInput3" label="What Platforms Is This Film Streaming On" className="mb-3">
+        <Form.Control type="text" placeholder="streamingOn" name="streamingOn" value={formInput.streamingOn} onChange={handleChange} />
+      </FloatingLabel>
 
-                <FloatingLabel controlId="floatingInput3" label="please enter a url of the movie poster" className="mb-3">
-                <Form.Control
-                    type="text"
-                    placeholder="imgUrl"
-                    name="imgUrl"
-                    value={formInput.imgUrl}
-                    onChange={handleChange}
-                />
-                </FloatingLabel>
+      <FloatingLabel controlId="floatingInput3" label="please enter a url of the movie poster" className="mb-3">
+        <Form.Control type="text" placeholder="imgUrl" name="imgUrl" value={formInput.imgUrl} onChange={handleChange} />
+      </FloatingLabel>
 
-            <Form.Check
-                type="switch"
-                id="custom-switch"
-                label="Check this switch"
-                onChange={() => {
-                    // eslint-disable-next-line no-param-reassign
-                    obj.isForeign = !obj.isForeign;
-                    console.log(obj.isForeign);
-                }}
-            />
+      <Form.Check
+        type="switch"
+        id="custom-switch"
+        label="Check this switch"
+        onChange={() => {
+          // eslint-disable-next-line no-param-reassign
+          obj.isForeign = !obj.isForeign;
+          console.log(obj.isForeign);
+        }}
+      />
 
       {/* SUBMIT BUTTON */}
       <Button type="submit">{obj.id ? 'Update' : 'Create'} Movie</Button>
@@ -230,4 +187,3 @@ MovieForm.defaultProps = {
 };
 
 export default MovieForm;
-
