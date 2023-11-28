@@ -18,7 +18,7 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: #000a0b;
 }
 
  #movieContainer { 
@@ -36,3 +36,5 @@ body {
   flex-direction: row;
   justify-content: space-between;
  } 
+
+

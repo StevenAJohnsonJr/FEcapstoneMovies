@@ -52,7 +52,18 @@ const updateMovie = (Id, payload) => new Promise((resolve, reject) => {
 //     .catch(reject);
 // });
 
-
+const getrandomMovie = () => new Promise((resolve, reject) => {
+    fetch(`${endpoint}/randommovie`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => resolve(Object.values(data)))
+        .catch(reject);
+});
 
 const getAllMovies = () => new Promise((resolve, reject) => {
     fetch(`${endpoint}/movie`, {
@@ -329,4 +340,5 @@ export {
     getMoviesById,
     getMoviesbyGenreID,
     checkUser,
+    getrandomMovie,
 };

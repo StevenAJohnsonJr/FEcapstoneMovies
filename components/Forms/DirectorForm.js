@@ -56,7 +56,7 @@ function DirectorForm({ directorObj }) {
             </FloatingLabel>
 
             <div>
-                <Button type="submit" variant="outline-warning" style={{ marginBottom: '30px' }}>{directorObj.id ? 'Update' : 'Create'} Your Menu Item</Button>
+                <Button type="submit" variant="outline-warning" style={{ marginBottom: '30px' }}>{directorObj.id ? 'Update' : 'ACTION'} </Button>
             </div>
         </Form>
     );
