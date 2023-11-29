@@ -21,9 +21,9 @@ const createMovie = (payload) => new Promise((resolve, reject) => {
         .catch(reject);
 });
 
-const updateMovie = (Id, payload) => new Promise((resolve, reject) => {
-    fetch(`${endpoint}/movie${Id}`, {
-        method: 'PATCH',
+const updateMovie = (payload) => new Promise((resolve, reject) => {
+    fetch(`${endpoint}/movie/${payload.id}`, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -222,7 +222,7 @@ const getAllDramaMovies = () => new Promise((resolve, reject) => {
 });
 
 const deleteMovie = (id) => new Promise((resolve, reject) => {
-    fetch(`${endpoint}/api/movie/${id}`, {
+    fetch(`${endpoint}/api/moviebyID/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

@@ -15,5 +15,5 @@ export default function EditMovies() {
     getMoviesById(id).then(x => setEditMovie(x));
   }, [id]);
   // TODO: pass object to form
-  return (<MovieForm movieDetails={editMovie} />);
+  return (<MovieForm obj={editMovie} />);
 }

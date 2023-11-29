@@ -152,6 +152,10 @@ function MovieForm({ obj }) {
                     <Form.Control type="text" placeholder="rating" name="rating" value={formInput.rating} onChange={handleChange} />
                 </FloatingLabel>
 
+                <FloatingLabel controlId="floatingInput3" label="How long is this film " className="mb-3">
+                    <Form.Control type="text" placeholder="rating" name="length" value={formInput.length} onChange={handleChange} />
+                </FloatingLabel>
+
                 <FloatingLabel controlId="floatingInput3" label="What Platforms Is This Film Streaming On" className="mb-3">
                     <Form.Control type="text" placeholder="streamingOn" name="streamingOn" value={formInput.streamingOn} onChange={handleChange} />
                 </FloatingLabel>

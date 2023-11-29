@@ -1,25 +1,30 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Card, CloseButton, Col, Row } from 'react-bootstrap';
+import { Card, Col, Row, Button, CloseButton } from 'react-bootstrap';
 import Link from 'next/link';
 import { deleteMovie, getMoviesById } from '../../ApiCalls/MovieApiCalls';
 
-export default function movieDetails() {
+export default function MovieDetails() {
   const router = useRouter();
   const [movieDetails, setMovieDetails] = useState({});
-  const { id } = router.query; // TODO: grab firebaseKey from url
+  const { id } = router.query;
 
   const deleteThisMovie = () => {
     if (window.confirm(`Delete ${movieDetails.id}?`)) {
-      deleteMovie(movieDetails.id).then(() => router.push('/movies/moviesPage'));
+        deleteMovie(movieDetails.id)
+        .then(() => router.push('/movies/moviesPage'))
+        .catch((error) => console.error('Error deleting movie:', error));
     }
   };
 
-  // TODO: make call to API layer to get the data
   useEffect(() => {
-    getMoviesById(id).then(setMovieDetails);
-    console.warn('my movie', movieDetails);
+    getMoviesById(id)
+      .then((data) => {
+        setMovieDetails(data);
+        console.warn('Movie details:', data);
+      })
+      .catch((error) => console.error('Error fetching movie details:', error));
   }, [id]);
 
   return (
@@ -30,7 +35,7 @@ export default function movieDetails() {
         </Card>
       </div>
       <div id="movieContainer">
-        <Card className="e-card e-card-horizontal" style={{ display: 'flex', flexDirection: 'row', width: '100%', heigh: '10rem' }}>
+        <Card className="e-card e-card-horizontal" style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '10rem' }}>
           <Card.Body>
             <Row>
               <Col sm>
@@ -53,15 +58,17 @@ export default function movieDetails() {
             </Row>
             <Row>
               <Col sm>
-                <Card.Text>Steaming On: {movieDetails.steamingOn}</Card.Text>
+                <Card.Text>Streaming On: {movieDetails.steamingOn}</Card.Text>
               </Col>
             </Row>
           </Card.Body>
-          <CloseButton id="closeButton" variant="danger" onClick={deleteThisMovie} className="m-2"></CloseButton>
+          <CloseButton variant="danger" onClick={deleteThisMovie} className="m-2">
+            {/* Delete */}
+          </CloseButton>
           <Link href={`/movies/edit/${movieDetails.id}`} passHref>
-            <button variant="primary" className="btn btn-outline-secondary">
+            <Button variant="primary" className="btn btn-outline-secondary">
               Edit
-            </button>
+            </Button>
           </Link>
         </Card>
       </div>
