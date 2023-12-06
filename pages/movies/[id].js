@@ -35,7 +35,7 @@ export default function MovieDetails() {
         </Card>
       </div>
       <div id="movieContainer">
-        <Card className="e-card e-card-horizontal" style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '10rem' }}>
+        <Card className="e-card e-card-horizontal" style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '14rem' }}>
           <Card.Body>
             <Row>
               <Col sm>

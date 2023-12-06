@@ -30,17 +30,18 @@ function DirectorForm({ directorObj }) {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (directorObj.id) {
-            updateDirector(formInput)
-                .then(() => router.push(`/directors/${directorObj.id}`));
+            await updateDirector(formInput);
+            router.push(`/directors/${directorObj.id}`);
         } else {
             const payload = { ...formInput, uid: user.uid };
-            console.log(payload);
-            createDirector(payload);
+            await createDirector(payload);
+            router.push('/directors/directorsPage'); // Add this line to navigate after creation
         }
     };
+    
 
     return (
         <Form onSubmit={handleSubmit}>

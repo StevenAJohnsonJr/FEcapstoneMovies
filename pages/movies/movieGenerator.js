@@ -1,10 +1,13 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { clientCredentials } from '../../utils/client';
+import MovieCard from '../../components/Cards/MovieCards';
+
 const endpoint = clientCredentials.databaseURL;
 
 const RandomMovie = () => {
-  const [randomMovie, setRandomMovie] = useState('');
+  const [randomMovie, setRandomMovie] = useState({});
+  const [buttonPressed, setButtonPressed] = useState(false);
 
   const generateRandomMovie = async () => {
     try {
@@ -17,12 +20,13 @@ const RandomMovie = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch random movie');
+        throw new Error('Failed to fetch a random movie');
       }
 
       const data = await response.json();
-      const selectedMovie = Object.values(data)[0];
-      setRandomMovie(selectedMovie);
+      console.log(data);
+      setRandomMovie(data);
+      setButtonPressed(true);
     } catch (error) {
       console.error('Error fetching data from custom API', error);
     }
@@ -32,7 +36,12 @@ const RandomMovie = () => {
     <div className="App">
       <h1>Random Movie Generator</h1>
       <button onClick={generateRandomMovie}>Generate Random Movie</button>
-      {randomMovie && <p>Random Movie: {randomMovie}</p>}
+      {buttonPressed && randomMovie && (
+        <>
+          <p>Random Movie: {randomMovie.title}</p>
+          <MovieCard MovieObj={randomMovie} />
+        </>
+      )}
     </div>
   );
 };

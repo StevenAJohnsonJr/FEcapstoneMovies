@@ -80,7 +80,7 @@ function MovieForm({ obj }) {
             console.log(payload);
             createMovie(payload)
                 .then(() => {
-                    // Redirect or perform other actions after successful creation
+                    router.push('/movies/moviesPage');
                 })
                 .catch((error) => {
                     console.error('Error creating movie:', error);
@@ -191,7 +191,7 @@ MovieForm.propTypes = {
         year: PropTypes.number,
         description: PropTypes.string,
         rated: PropTypes.string,
-        rating: PropTypes.string,
+        rating: PropTypes.number,
         streamingOn: PropTypes.string,
         length: PropTypes.string,
         id: PropTypes.number,
