@@ -35,6 +35,19 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- } 
+ }
+
+ /* Add these styles to ensure even space, padding, and margins */
+.movie-card {
+  margin: 10px; /* Adjust the margin as needed */
+  padding: 10px; /* Adjust the padding as needed */
+  /* border: 1px solid #ccc; Optional: Add a border for better visibility */
+}
+
+/* Ensure even space between each card */
+.movie-card + .movie-card {
+  margin-left: 10px; /* Adjust the margin-left as needed */
+}
+
 
 

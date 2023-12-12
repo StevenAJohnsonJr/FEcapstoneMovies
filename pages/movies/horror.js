@@ -1,20 +1,27 @@
 /* eslint-disable */
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getAllHorrorMovies } from '../../ApiCalls/MovieApiCalls';
 import HorrorCard from '../../components/Cards/HorrorMovieCards';
 
 function HorrorMoviePage() {
-    const [horrorMovies, setHorrorMovie] = useState([]);
+    const [horrorMovies, setHorrorMovies] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const getHorror = () => {
-        getAllHorrorMovies().then(setHorrorMovie);
+        getAllHorrorMovies().then(setHorrorMovies);
     };
 
     useEffect(() => {
         getHorror();
-        console.warn(horrorMovies);
     }, []);
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredHorrorMovies = horrorMovies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div style={{
@@ -35,9 +42,16 @@ function HorrorMoviePage() {
                 }}
             >
                 <h1>All Our Horror Movies</h1>
+                <input
+                    type="text"
+                    placeholder="Search Horror Movies"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    style={{ marginTop: '10px', padding: '5px' }}
+                />
             </div>
             <div className="flex-wrap" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%' }}>
-                {horrorMovies?.map((movie) => (
+                {filteredHorrorMovies.map((movie) => (
                     <HorrorCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>

@@ -7,28 +7,24 @@ import { Card } from 'react-bootstrap';
 
 
 function ComedyCard({ MovieObj }) {
+    // Check if MovieObj is defined and has the id property
+    if (!MovieObj || typeof MovieObj.id === 'undefined') {
+        // Handle the case where MovieObj or id is undefined
+        return null; // or you can render a placeholder/error message
+    }
 
     return (
-        <Card style={{
-            width: '25rem', height: '25rem', margin: '8px', backgroundColor: '#fff', color: 'black', boxShadow: '3px 3px 4px #9e9e9e', borderRadius: '18px',
-        }}
-        >
-            <Link href={`/movies/${MovieObj.id}`} passHref>
-                <div className="d-flex justify-content-start" style={{ padding: '10px 10px 0px 10px', gap: '2rem' }}>
-                    <Card.Img variant="top" src={MovieObj.imgUrl} alt="Movie Img" style={{ width: '6.25rem', height: '6.25rem' }} />
-                    <Card.Title className="align-self-center text-center fs-4">
-                        {MovieObj.title}
-                    </Card.Title>
-                </div>
-            </Link>
-            <hr className="m-3" />
-            <Card.Body>
-                {MovieObj.rating}
-                {MovieObj.rated}
-            </Card.Body>
-        </Card>
+        <Link href={`/movies/${MovieObj.id}`} passHref>
+            <div className="movie-card">
+                <img src={MovieObj.imgUrl} alt={MovieObj.title} />
+                <p>{MovieObj.title}</p>
+                <p>{MovieObj.rated}</p>
+                <p>{MovieObj.rating}</p>
+            </div>
+        </Link>
     );
 }
+
 
 ComedyCard.propTypes = {
     MovieObj: PropTypes.shape({

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import MovieCard from '../../components/Cards/MovieCards';
-import { getDirectorById, getMovieByDirectorId } from '../../ApiCalls/DirectorsApiCalls';
+import { getDirectorById, getMovieObjByDirectorId } from '../../ApiCalls/DirectorsApiCalls';
 
 export default function orderDetails() {
     const router = useRouter();
@@ -16,7 +16,7 @@ export default function orderDetails() {
     }, [id]);
   
     useEffect(() => {
-        getMovieByDirectorId(id).then(setMovies);
+      getMovieObjByDirectorId (id).then(setMovies);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -30,7 +30,7 @@ export default function orderDetails() {
               <h1>{directorDetails.directorName}'s Movies</h1> <p style={{ marginButton: '100px' }}></p>
               <div className="CommentCardShow d-flex flex-wrap" style={{ marginTop: '20px' }}>
                 {movies.map((movie) => (
-                  <MovieCard key={movie.directorId} MovieObj={movie} onUpdate={getMovieByDirectorId} />
+                  <MovieCard key={movie.directorId} MovieObj={movie} onUpdate={getMovieObjByDirectorId} />
                   ))}
                   </div>
               <h5></h5>
