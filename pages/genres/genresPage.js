@@ -15,7 +15,7 @@ function GenreMoviePage() {
         console.warn(genreMovies)
     }, []);
     return (
-        <>
+        <div className="genrePage">
 
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
@@ -31,8 +31,8 @@ function GenreMoviePage() {
             <div className="flex-wrap" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
                 {genreMovies?.map((genre) => (
                     <GenreCard GenreObj={genre} />))}
-            </div>
-        </>
+            </div>            
+        </div>
     );
 }
 export default GenreMoviePage;

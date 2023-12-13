@@ -6,16 +6,18 @@ import { Card } from 'react-bootstrap';
 
 function GenreCard({ GenreObj }) {
   return (
-    <Card
+    <Card className="genreCard"
       style={{
-        width: '25rem',
-        height: '25rem',
+        width: '232px',
+        height: '202px',
         margin: '8px',
-        backgroundColor: '#fff',
-        color: 'black',
-        boxShadow: '3px 3px 4px #9e9e9e',
+        backgroundColor: 'rgba(73, 68, 68, 0.68)',
+        color: 'white',
         borderRadius: '18px',
-      }}
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        }}
     >
       <Link href={`/movies/${GenreObj.genreName.toLowerCase()}`} passHref>
         <div className="d-flex justify-content-start" style={{ padding: '10px 10px 0px 10px', gap: '2rem' }}>
