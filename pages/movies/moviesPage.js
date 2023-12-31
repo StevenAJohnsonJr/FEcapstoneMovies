@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { getAllMovies } from '../../ApiCalls/MovieApiCalls';
-import MovieScrollCarousel from '../../components/Cards/MovieScrollCarousel';
-import MovieCard from '../../components/Cards/MovieCards';
+import TopSlide from '../../components/Carousel2';
+
 
 function MoviePage() {
     const [movies, setMovies] = useState([]);
@@ -26,6 +26,7 @@ function MoviePage() {
 
     return (
         <>
+        
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
@@ -45,9 +46,9 @@ function MoviePage() {
             </div>
 
             {/* Include the MovieScrollCarousel component */}
-            <MovieScrollCarousel movies={filteredMovies} />
+            <TopSlide movies={filteredMovies} />
 
-            <div
+            {/* <div
                 className="flex-wrap"
                 style={{
                     display: 'flex',
@@ -58,7 +59,7 @@ function MoviePage() {
                 {filteredMovies.map((movie) => (
                     <MovieCard key={movie.id} MovieObj={movie} />
                 ))}
-            </div>
+            </div> */}
         </>
     );
 }

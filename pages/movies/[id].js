@@ -95,7 +95,7 @@ export default function MovieDetails() {
           <Col sm={12}>
             <Card style={{ width: '100%' }}>
               <iframe
-                src={`https://www.youtube.com/embed/${movieDetails.videoKey}`}
+                src={`${movieDetails.videoKey}`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

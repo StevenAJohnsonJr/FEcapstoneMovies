@@ -20,8 +20,9 @@ const initialState = {
     year: '',
     rated: '',
     rating: '',
-    streamingOn: '',
+    steamingOn: '',
     imgUrl: '',
+    videoKey: '',
     length: '',
     id: null,
 };
@@ -157,11 +158,15 @@ function MovieForm({ obj }) {
                 </FloatingLabel>
 
                 <FloatingLabel controlId="floatingInput3" label="What Platforms Is This Film Streaming On" className="mb-3">
-                    <Form.Control type="text" placeholder="streamingOn" name="streamingOn" value={formInput.streamingOn} onChange={handleChange} />
+                    <Form.Control type="text" placeholder="steamingOn" name="steamingOn" value={formInput.steamingOn} onChange={handleChange} />
                 </FloatingLabel>
 
                 <FloatingLabel controlId="floatingInput3" label="please enter a url of the movie poster" className="mb-3">
                     <Form.Control type="text" placeholder="imgUrl" name="imgUrl" value={formInput.imgUrl} onChange={handleChange} />
+                </FloatingLabel>
+
+                <FloatingLabel controlId="floatingInput3" label="please enter YouTube a Url of the movie trailer" className="mb-3">
+                    <Form.Control type="text" placeholder="videoKey" name="videoKey" value={formInput.videoKey} onChange={handleChange} />
                 </FloatingLabel>
 
                 <Form.Check
@@ -191,8 +196,10 @@ MovieForm.propTypes = {
         year: PropTypes.number,
         description: PropTypes.string,
         rated: PropTypes.string,
+        imgUrl: PropTypes.string,
+        videoKey: PropTypes.string,
         rating: PropTypes.number,
-        streamingOn: PropTypes.string,
+        steamingOn: PropTypes.string,
         length: PropTypes.string,
         id: PropTypes.number,
     }),
