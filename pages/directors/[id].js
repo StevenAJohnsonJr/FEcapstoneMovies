@@ -21,7 +21,7 @@ export default function orderDetails() {
     }, []);
 
   return (
-    <div>
+    <div className="idPage">
       <div className="body2" class="c2">
         <div className="body2" class="c2">
           <div class="b2">

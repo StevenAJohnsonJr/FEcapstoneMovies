@@ -24,7 +24,7 @@ function HolidayMoviePage() {
     );
 
     return (
-        <>
+        <div className="holidayPage">
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
@@ -54,7 +54,7 @@ function HolidayMoviePage() {
                     <HolidayCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

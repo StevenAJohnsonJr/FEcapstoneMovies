@@ -26,9 +26,9 @@ function HorrorMoviePage() {
     return (
         <div style={{
             backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxt1pRk6_53iZ1t6Y4g_i9LTq_rcamLnET2w&usqp=CAU")',
-            backgroundSize: 'cover',
+            // backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
+            // backgroundRepeat: 'no-repeat',
             minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',

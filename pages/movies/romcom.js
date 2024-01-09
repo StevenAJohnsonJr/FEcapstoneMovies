@@ -24,7 +24,7 @@ function RomComMoviePage() {
     );
 
     return (
-        <>
+        <div className="romCom">
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
@@ -54,7 +54,7 @@ function RomComMoviePage() {
                     <RomComCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

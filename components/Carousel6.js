@@ -6,25 +6,25 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
-import { getAllMovies } from '../ApiCalls/MovieApiCalls';
+import { getAllHorrorMovies } from '../ApiCalls/MovieApiCalls';
 import MovieCard from './Cards/MovieCards';
 
-const TopSlide = () => {
+const TopSlide5 = () => {
   const [movies, setMovies] = useState([]);
   const router = useRouter();
 
-  const getAllTheMovies = () => {
-    getAllMovies().then((data) => {
+  const getAllTheHorrorMovies = () => {
+    getAllHorrorMovies().then((data) => {
       setMovies(data);
     });
   };
 
   const onUpdate = () => {
-    getAllTheMovies();
+    getAllTheHorrorMovies();
   };
 
   useEffect(() => {
-    getAllTheMovies();
+    getAllTheHorrorMovies();
   }, []);
 
   const sliderSettings = {
@@ -38,18 +38,19 @@ const TopSlide = () => {
 
   return (
     <div>
-      <Link href="/movies/new" passHref>
-        <Button variant="btn btn-warning" style={{ marginBottom: '30px' }}>Click To Add a Movie If You Do Not See What You Are Looking For</Button>
-      </Link>
+
+        <h2>Horror Movies</h2>
+        
       <Slider {...sliderSettings}>
         {movies.map((movie) => (
           <div key={movie.id}>
             <MovieCard MovieObj={movie} onUpdate={onUpdate} />
           </div>
         ))}
-      </Slider>      
+      </Slider>
+     
     </div>
   );
 };
 
-export default TopSlide;
+export default TopSlide5;

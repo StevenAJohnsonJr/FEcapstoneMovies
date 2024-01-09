@@ -24,7 +24,7 @@ function WesternMoviePage() {
     );
 
     return (
-        <>
+        <div className="Western">
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
@@ -54,7 +54,7 @@ function WesternMoviePage() {
                     <WesternCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

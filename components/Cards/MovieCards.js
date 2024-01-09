@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 function MovieCard({ MovieObj }) {
     // Check if MovieObj is defined and has the id property
@@ -12,14 +12,22 @@ function MovieCard({ MovieObj }) {
     }
 
     return (
-        <Link href={`/movies/${MovieObj.id}`} passHref>
-            <div className="movie-card">
-                <img src={MovieObj.imgUrl} alt={MovieObj.title} />
-                <p>{MovieObj.title}</p>
-                <p>{MovieObj.rated}</p>
-                <p>{MovieObj.rating}</p>
-            </div>
-        </Link>
+        <div className="movie-card">
+            <Link href={`/movies/${MovieObj.id}`} passHref>
+                <div className="">
+                    <img src={MovieObj.imgUrl} alt={MovieObj.title} />
+                    <p>{MovieObj.title}</p>
+                    <Row>
+                        <Col sm={6} style={{ marginRight: '1%' }}>
+                            <p>{MovieObj.rated}</p>
+                        </Col>
+                        <Col sm={6}>
+                            <p>{MovieObj.rating}</p>
+                        </Col>
+                    </Row>
+                </div>
+            </Link>
+        </div>
     );
 }
 
@@ -34,4 +42,5 @@ MovieCard.propTypes = {
 };
 
 export default MovieCard;
+
 

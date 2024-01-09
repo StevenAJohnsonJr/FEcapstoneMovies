@@ -24,7 +24,7 @@ function MTMoviePage() {
     );
 
     return (
-        <>
+        <div className="MysterThiller">
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
@@ -54,7 +54,7 @@ function MTMoviePage() {
                     <MtCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

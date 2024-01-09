@@ -24,16 +24,18 @@ function FamilyMoviePage() {
     );
 
     return (
-        <>
+        <div className="familyPage">
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
                     height: '22vh',
                     padding: '7px',
                     margin: '0 auto',
+                    backgroundImage: 'url()',
+                    backgroundSize: 'cover', // or 'contain' depending on your preference
                 }}
             >
-                <h1>All Our Family Movies</h1>
+                <h1 style={{ color: 'gray' }}>All Our Family Movies</h1>
                 <input
                     type="text"
                     placeholder="Search Family Movies"
@@ -54,8 +56,9 @@ function FamilyMoviePage() {
                     <FamilyCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 
 export default FamilyMoviePage;
+
