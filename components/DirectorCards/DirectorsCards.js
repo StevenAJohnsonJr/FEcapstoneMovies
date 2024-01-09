@@ -8,13 +8,15 @@ function DirectorCard({ dirObj }) {
   return (
     <Card
       style={{
-        width: '25rem',
-        height: '25rem',
+        width: '232px',
+        height: '202px',
         margin: '8px',
-        backgroundColor: '#fff',
-        color: 'black',
-        boxShadow: '3px 3px 4px #9e9e9e',
+        backgroundColor: 'rgba(73, 68, 68, 0.68)',
+        color: 'white',
         borderRadius: '18px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <Link href={`/directors/${dirObj.id}`} passHref>

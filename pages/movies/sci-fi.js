@@ -24,7 +24,7 @@ function SciFiMoviePage() {
     );
 
     return (
-        <>
+        <div className="scifiPage">
             <div
                 className="text-center d-flex flex-column justify-content-center align-content-center"
                 style={{
@@ -54,7 +54,7 @@ function SciFiMoviePage() {
                     <ActionCard key={movie.id} MovieObj={movie} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

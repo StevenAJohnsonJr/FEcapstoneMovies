@@ -181,7 +181,7 @@ function MovieForm({ obj }) {
                 />
 
                 {/* SUBMIT BUTTON */}
-                <Button type="submit">{obj.id ? 'Update' : 'Create'} Movie</Button>
+                <Button type="submit" variant="outline-warning" style={{ marginBottom: '30px' }}>{obj.id ? 'Update' : 'Lights'} Camera Action</Button>
             </Form>
         </animated.div>
     );

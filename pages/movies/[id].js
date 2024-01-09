@@ -29,15 +29,15 @@ export default function MovieDetails() {
   }, [id]);
 
   return (
-    <div>
-      <Row>
+    <div className="movieDetails">
+      <Row className="movieDetails2">
         <Col sm={6}>
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="center" src={movieDetails.imgUrl} />
           </Card>
         </Col>
         <Col sm={6}>
-          <Card className="e-card e-card-horizontal" style={{ width: '100%', height: '14rem', position: 'relative' }}>
+          <Card className="e-card e-card-horizontal" style={{ width: '100%', height: '14rem', position: 'relative',  backgroundColor: 'rgba(73, 68, 68, 0.68)', color: 'white' }}>
             <Card.Body>
               <Row>
                 <Col sm>
@@ -67,20 +67,20 @@ export default function MovieDetails() {
             <CloseButton
               variant="danger"
               onClick={deleteThisMovie}
-              className="m-2"
-              style={{ position: 'absolute', top: 0, right: 0 }}
+              className="DetailButton"
+              style={{ position: '', top: 0, right: 0 }}
             >
               {/* Delete */}
             </CloseButton>
             <Link href={`/movies/edit/${movieDetails.id}`} passHref>
-              <Button variant="primary" className="btn btn-outline-secondary">
+              <Button variant="outline-warning" className="btn btn-outline-secondary btn-sm">
                 Edit
               </Button>
             </Link>
             <Card>
             <Button
-              variant="primary"
-              className="btn btn-outline-secondary"
+              variant="outline-warning"
+              className="btn btn-outline-secondary btn-sm"
               onClick={() => setShowVideo(!showVideo)}
               style={{ position: '', bottom: '10px', right: '10px' }}
             >
@@ -91,8 +91,8 @@ export default function MovieDetails() {
         </Col>
       </Row>
       {showVideo && (
-        <Row className="mt-3">
-          <Col sm={12}>
+        <div className="mt-3">
+          
             <Card style={{ width: '100%' }}>
               <iframe
                 src={`${movieDetails.videoKey}`}
@@ -104,10 +104,9 @@ export default function MovieDetails() {
                 height="315"
               />
             </Card>
-          </Col>
-        </Row>
+          
+        </div>
       )}
     </div>
   );
 }
-
